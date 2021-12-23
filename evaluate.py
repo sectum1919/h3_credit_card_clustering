@@ -7,7 +7,7 @@ from numpy.random import uniform
 import numpy as np
 from math import isnan
 
-from jqmcvi import base
+# from jqmcvi import base
 
 
 def dunn(data, label):
