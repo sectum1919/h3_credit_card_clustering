@@ -3,7 +3,7 @@ from dataset import dataset
 from sklearn.manifold import TSNE
 import matplotlib.pyplot as plt
 import datetime, time
-
+from evaluate import unsupervised_evaluate
 # our own methods
 from clustering.kmeans import kmeans_clustering
 
@@ -30,13 +30,17 @@ for method in methods:
         start = time.time()
         cluster_id = method["func"](data)
         end = time.time()
+        print()
         print(f'{method["name"]} run {end-start} seconds')
+        # do evaluate
+        unsupervised_evaluate(data, cluster_id)
 
         tsne = TSNE(init='random',learning_rate=200.0)
         embedding = tsne.fit_transform(data)
 
         plt.scatter(embedding[:,0], embedding[:,1], c=cluster_id, s=1)
         plt.savefig(f'./fig/{method["name"]}', dpi=700)
+        print()
     except:
         print(f"error occurs when running {method['name']}")
 
