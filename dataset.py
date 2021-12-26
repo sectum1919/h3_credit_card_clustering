@@ -1,6 +1,8 @@
 import numpy as np
 import pandas as pd
 from pandas.core.frame import DataFrame
+from sklearn import preprocessing
+from sklearn.decomposition import PCA
 
 
 class dataset():
@@ -19,5 +21,17 @@ class dataset():
             df.dropna(inplace=True)
         df.info()
         self.df = df
-    def data(self):
-        return self.df.values
+    def data(self, pca_dim=None, standard='standard'):
+        value = self.df.values
+        if pca_dim is not None:
+            pca = PCA(n_components=pca_dim)
+            value = pca.fit_transform(value)
+        if standard == 'maxmin':
+            scaler = preprocessing.MinMaxScaler()
+            scaler.fit(value)
+            value = scaler.transform(value)
+        elif standard == 'standard':
+            scaler = preprocessing.StandardScaler()
+            scaler.fit(value)
+            value = scaler.transform(value)
+        return value
