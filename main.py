@@ -3,6 +3,7 @@ from sklearn.manifold import TSNE
 import matplotlib.pyplot as plt
 import time
 from evaluate import unsupervised_evaluate
+from analyze import draw_grid
 # our own methods
 from clustering.partition_based_methods import kmeans_clustering
 from clustering.density_based_methods import dbscan_clustering
@@ -45,6 +46,7 @@ for method in methods:
 
         plt.scatter(embedding[:,0], embedding[:,1], c=cluster_id, s=1, cmap='rainbow')
         plt.savefig(f'./fig/{method["name"]}', dpi=700)
+        draw_grid(ccdata.df, cluster_id, method["name"])
         print()
     except:
         print(f"error occurs when running {method['name']}")
