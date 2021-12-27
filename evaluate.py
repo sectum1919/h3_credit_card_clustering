@@ -6,19 +6,6 @@ from random import sample
 from numpy.random import uniform
 import numpy as np
 from math import isnan
-
-# from jqmcvi import base
-
-
-# def dunn(data, label):
-#     max_cluster = max(label)
-#     cluster_list = []
-#     for i in range(max_cluster+1):
-#         cluster_list.append([])
-#     for index, row in enumerate(data):
-#         cluster_list[label[index]].append(row)
-#     print(base.dunn(cluster_list))
-
  
 # https://github.com/romusters/hopkins/blob/master/main.py
 def hopkins(X):
@@ -65,10 +52,6 @@ def unsupervised_evaluate(data, label):
     # Davies-Bouldin Index(DB/DBI), smaller is better
     score = sklearn.metrics.davies_bouldin_score (data, label)
     print(f"Davies-Bouldin Index   : {score}")
-
-    # Dunn Validity Index(DVI), bigger is better
-    # score = dunn(data, label)
-    # print(f"Dunn Validity Index   : {score}")
 
     # https://blog.csdn.net/weixin_39671140/article/details/114690991
     # Hopkins Statistic, bigger is better
