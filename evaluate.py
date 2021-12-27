@@ -10,17 +10,14 @@ from math import isnan
 # from jqmcvi import base
 
 
-def dunn(data, label):
-  
-    max_cluster = max(label)
-    
-    cluster_list = []
-    for i in range(max_cluster+1):
-        cluster_list.append([])
-    for index, row in enumerate(data):
-        cluster_list[label[index]].append(row)
-    
-    print(base.dunn(cluster_list))
+# def dunn(data, label):
+#     max_cluster = max(label)
+#     cluster_list = []
+#     for i in range(max_cluster+1):
+#         cluster_list.append([])
+#     for index, row in enumerate(data):
+#         cluster_list[label[index]].append(row)
+#     print(base.dunn(cluster_list))
 
  
 # https://github.com/romusters/hopkins/blob/master/main.py

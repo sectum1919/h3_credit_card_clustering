@@ -1,8 +1,7 @@
-#%%
 from dataset import dataset
 from sklearn.manifold import TSNE
 import matplotlib.pyplot as plt
-import datetime, time
+import time
 from evaluate import unsupervised_evaluate
 # our own methods
 from clustering.partition_based_methods import kmeans_clustering
