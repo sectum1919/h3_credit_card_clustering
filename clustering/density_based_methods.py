@@ -34,7 +34,7 @@ def getCore(dataset , eps , min_samples):
             core[i] = neibor
     return core
 
-def dbscan(dataset,eps = 2.0,min_samples = 30):
+def dbscan(dataset,eps = 1.8,min_samples = 8):
     len_d = len(dataset)
     '''
     dis_k = []
